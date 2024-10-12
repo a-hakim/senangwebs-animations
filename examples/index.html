@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SenangWebs Animations Tailwind CSS Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../dist/swa.css">
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center mb-8">SenangWebs Animations Showcase</h1>
+        
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Fade Animations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade">Fade</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-up">Fade Up</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-down">Fade Down</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-left">Fade Left</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-right">Fade Right</div>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Flip Animations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="flip-up">Flip Up</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="flip-down">Flip Down</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="flip-left">Flip Left</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="flip-right">Flip Right</div>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Zoom Animations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="zoom-in">Zoom In</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="zoom-out">Zoom Out</div>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Bounce Animations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="bounce-in">Bounce In</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="bounce-out">Bounce Out</div>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Slide Animations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-up">Slide Up</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-down">Slide Down</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-left">Slide Left</div>
+            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-right">Slide Right</div>
+        </div>
+    </div>
+
+    <script src="../dist/swa.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof window.SWA !== 'undefined' && typeof window.SWA.init === 'function') {
+                console.log('Initializing SWA');
+                window.SWA.init({
+                    offset: 100,
+                    duration: 1000,
+                    easing: 'ease-in-out',
+                    once: false,
+                    mirror: true
+                });
+            } else {
+                console.error('SWA is not properly loaded', window.SWA);
+            }
+        });
+    </script>
+</body>
+</html>
