@@ -6,54 +6,111 @@
     <title>SenangWebs Animations Tailwind CSS Showcase</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../dist/swa.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-markup.min.js"></script>
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
-    <div class="container mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold text-center mb-8">SenangWebs Animations Showcase</h1>
+    <div class="container mx-auto px-4 py-16">
+        <h1 class="text-4xl font-bold text-center mb-16">SenangWebs Animations Showcase</h1>
         
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Fade Animations</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade">Fade</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-up">Fade Up</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-up-left">Fade Up Left</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-up-right">Fade Up Right</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-down">Fade Down</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-down-left">Fade Down Left</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-down-right">Fade Down Right</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-left">Fade Left</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="fade-right">Fade Right</div>
+        <h2 class="text-2xl font-semibold mb-16 py-8 border-y-2 border-neutral-400 text-center">Fade Animations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 mb-32">
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="fade">Fade</div>
+                <pre><code class="language-markup">&lt;div data-swa="fade"&gt;Fade&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="fade-up">Fade Up</div>
+                <pre><code class="language-markup">&lt;div data-swa="fade-up"&gt;Fade Up&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="fade-down">Fade Down</div>
+                <pre><code class="language-markup">&lt;div data-swa="fade-down"&gt;Fade Down&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="fade-left">Fade Left</div>
+                <pre><code class="language-markup">&lt;div data-swa="fade-left"&gt;Fade Left&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="fade-right">Fade Right</div>
+                <pre><code class="language-markup">&lt;div data-swa="fade-right"&gt;Fade Right&lt;/div&gt;</code></pre>
+            </div>
         </div>
 
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Flip Animations</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="flip-up">Flip Up</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="flip-down">Flip Down</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="flip-left">Flip Left</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="flip-right">Flip Right</div>
+        <h2 class="text-2xl font-semibold mb-16 py-8 border-y-2 border-neutral-400 text-center">Flip Animations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 mb-32">
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="flip-up">Flip Up</div>
+                <pre><code class="language-markup">&lt;div data-swa="flip-up"&gt;Flip Up&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="flip-down">Flip Down</div>
+                <pre><code class="language-markup">&lt;div data-swa="flip-down"&gt;Flip Down&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="flip-left">Flip Left</div>
+                <pre><code class="language-markup">&lt;div data-swa="flip-left"&gt;Flip Left&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="flip-right">Flip Right</div>
+                <pre><code class="language-markup">&lt;div data-swa="flip-right"&gt;Flip Right&lt;/div&gt;</code></pre>
+            </div>
         </div>
 
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Zoom Animations</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="zoom-in">Zoom In</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="zoom-out">Zoom Out</div>
+        <h2 class="text-2xl font-semibold mb-16 py-8 border-y-2 border-neutral-400 text-center">Zoom Animations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 mb-32">
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="zoom-in">Zoom In</div>
+                <pre><code class="language-markup">&lt;div data-swa="zoom-in"&gt;Zoom In&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="zoom-out">Zoom Out</div>
+                <pre><code class="language-markup">&lt;div data-swa="zoom-out"&gt;Zoom Out&lt;/div&gt;</code></pre>
+            </div>
         </div>
 
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Bounce Animations</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="bounce-in">Bounce In</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="bounce-out">Bounce Out</div>
+        <h2 class="text-2xl font-semibold mb-16 py-8 border-y-2 border-neutral-400 text-center">Bounce Animations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 mb-32">
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="bounce-in">Bounce In</div>
+                <pre><code class="language-markup">&lt;div data-swa="bounce-in"&gt;Bounce In&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="bounce-out">Bounce Out</div>
+                <pre><code class="language-markup">&lt;div data-swa="bounce-out"&gt;Bounce Out&lt;/div&gt;</code></pre>
+            </div>
         </div>
 
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Slide Animations</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-up">Slide Up</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-up-left">Slide Up Left</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-up-right">Slide Up Right</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-down">Slide Down</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-down-left">Slide Down Left</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-down-right">Slide Down Right</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-left">Slide Left</div>
-            <div class="bg-white shadow-md rounded p-4 text-center" data-swa="slide-right">Slide Right</div>
+        <h2 class="text-2xl font-semibold mb-16 py-8 border-y-2 border-neutral-400 text-center">Slide Animations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-32 mb-32">
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="slide-up">Slide Up</div>
+                <pre><code class="language-markup">&lt;div data-swa="slide-up"&gt;Slide Up&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="slide-down">Slide Down</div>
+                <pre><code class="language-markup">&lt;div data-swa="slide-down"&gt;Slide Down&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="slide-left">Slide Left</div>
+                <pre><code class="language-markup">&lt;div data-swa="slide-left"&gt;Slide Left&lt;/div&gt;</code></pre>
+            </div>
+            <div class="bg-white shadow-md rounded p-4">
+                <div class="text-center mb-4" data-swa="slide-right">Slide Right</div>
+                <pre><code class="language-markup">&lt;div data-swa="slide-right"&gt;Slide Right&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-semibold mb-16 py-8 border-y-2 border-neutral-400 text-center">Advanced Example</h2>
+        <div class="bg-white shadow-md rounded p-4 mb-8">
+            <div class="text-center mb-4" data-swa="fade-up" data-swa-delay="300" data-swa-duration="1500" data-swa-easing="ease-in-out">Advanced Fade Up</div>
+            <pre><code class="language-markup">&lt;div
+  data-swa="fade-up"
+  data-swa-delay="300"
+  data-swa-duration="1500"
+  data-swa-easing="ease-in-out"
+&gt;Advanced Fade Up&lt;/div&gt;</code></pre>
         </div>
     </div>
 
@@ -72,6 +129,7 @@
             } else {
                 console.error('SWA is not properly loaded', window.SWA);
             }
+            Prism.highlightAll();
         });
     </script>
 </body>
