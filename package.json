@@ -1,6 +1,6 @@
 {
   "name": "senangwebs-animations",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "SenangWebs Animations (SWA) is a lightweight JavaScript library that enables smooth, customizable animations for HTML elements as they enter the viewport during scrolling. With minimal setup, you can add engaging animations to your web pages, enhancing the user experience.",
   "main": "index.js",
   "scripts": {
