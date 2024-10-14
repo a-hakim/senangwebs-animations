@@ -13,7 +13,7 @@ SenangWebs Animations (SWA) is a lightweight JavaScript library that enables smo
 - Responsive and works on all modern browsers
 
 ## Examples
-[https://unpkg.com/senangwebs-animations@1.0.1/examples/index.html](https://unpkg.com/senangwebs-animations@1.0.1/examples/index.html)
+[https://unpkg.com/senangwebs-animations@latest/examples/index.html](https://unpkg.com/senangwebs-animations@latest/examples/index.html)
 
 ## Installation
 
