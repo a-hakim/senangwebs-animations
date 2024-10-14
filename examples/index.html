@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SenangWebs Animations Tailwind CSS Showcase</title>
+    <title>SenangWebs Animations Showcase</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../dist/swa.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
@@ -100,6 +100,45 @@
                 <div class="text-center mb-4" data-swa="slide-right">Slide Right</div>
                 <pre><code class="language-markup">&lt;div data-swa="slide-right"&gt;Slide Right&lt;/div&gt;</code></pre>
             </div>
+        </div>
+
+        <h2 class="text-2xl font-semibold mb-16 py-8 border-y-2 border-neutral-400 text-center">Group Animations</h2>
+        <div class="bg-white shadow-md rounded p-4 mb-32">
+            <div class="grid grid-cols-3 gap-8 p-8 mb-4" 
+                data-swa-group="slide-up" 
+                data-swa-group-type="sequence" 
+                data-swa-group-interval-duration="500"
+                data-swa-group-offset="200"
+                data-swa-group-delay="100"
+                data-swa-group-duration="1000"
+                data-swa-group-easing="ease-in-out"
+                data-swa-group-mirror="true"
+                data-swa-group-once="false">
+                <div class="text-center">Slide Up 1</div>
+                <div class="text-center">Slide Up 2</div>
+                <div class="text-center">Slide Up 3</div>
+                <div class="text-center">Slide Up 4</div>
+                <div class="text-center">Slide Up 5</div>
+                <div class="text-center" data-swa="slide-down">Slide Down</div>
+            </div>
+            <pre><code class="language-markup">&lt;div
+  data-swa-group="slide-up" 
+  data-swa-group-type="sequence" 
+  data-swa-group-interval-duration="500"
+  data-swa-group-offset="200"
+  data-swa-group-delay="100"
+  data-swa-group-duration="1000"
+  data-swa-group-easing="ease-in-out"
+  data-swa-group-mirror="true"
+  data-swa-group-once="false"
+&gt;
+  &lt;div&gt;Slide Up 1&lt;/div&gt;
+  &lt;div&gt;Slide Up 2&lt;/div&gt;
+  &lt;div&gt;Slide Up 3&lt;/div&gt;
+  &lt;div&gt;Slide Up 4&lt;/div&gt;
+  &lt;div&gt;Slide Up 5&lt;/div&gt;
+  &lt;div data-swa="slide-down"&gt;Slide Down&lt;/div&gt;
+&lt;/div&gt;</code></pre>
         </div>
 
         <h2 class="text-2xl font-semibold mb-16 py-8 border-y-2 border-neutral-400 text-center">Advanced Example</h2>

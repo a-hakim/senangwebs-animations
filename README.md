@@ -2,17 +2,18 @@
 
 SenangWebs Animations (SWA) is a lightweight JavaScript library that enables smooth, customizable animations for HTML elements as they enter the viewport during scrolling. With minimal setup, you can add engaging animations to your web pages, enhancing the user experience.
 
-## Examples
-[https://unpkg.com/senangwebs-animations@1.0.1/examples/index.html](https://unpkg.com/senangwebs-animations@1.0.1/examples/index.html)
-
 ## Features
 
 - Easy to integrate with existing projects
-- Supports various animation types: fade, flip, zoom, and bounce
+- Supports various animation types: fade, flip, zoom, slide, and bounce
 - Customizable animation parameters via data attributes
+- Group animations with simultaneous or sequential timing
 - Efficient performance using Intersection Observer API
 - Global configuration options
 - Responsive and works on all modern browsers
+
+## Examples
+[https://unpkg.com/senangwebs-animations@1.0.1/examples/index.html](https://unpkg.com/senangwebs-animations@1.0.1/examples/index.html)
 
 ## Installation
 
@@ -76,11 +77,33 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 ```
 
+4. For group animations, use the `data-swa-group` attribute:
+
+```html
+<div 
+  data-swa-group="fade-up"
+  data-swa-group-type="sequence"
+  data-swa-group-interval-duration="500"
+  data-swa-group-offset="200"
+  data-swa-group-delay="100"
+  data-swa-group-duration="1000"
+  data-swa-group-easing="ease-in-out"
+  data-swa-group-mirror="true"
+  data-swa-group-once="false"
+>
+  <div>Child 1</div>
+  <div>Child 2</div>
+  <div>Child 3</div>
+</div>
+```
+
 ## Configuration Options
 
-You can configure animations globally or per element using the following options:
+### Individual Element Options
 
-- `data-swa`: Animation type (e.g., "fade-up", "flip-left", "zoom-in", "bounce-in")
+You can configure animations for individual elements using the following attributes:
+
+- `data-swa`: Animation type (e.g., "fade-up", "flip-left", "zoom-in", "slide-right", "bounce-in")
 - `data-swa-offset`: Distance (in pixels) from the viewport before triggering the animation
 - `data-swa-delay`: Delay before starting the animation (in milliseconds)
 - `data-swa-duration`: Duration of the animation (in milliseconds)
@@ -89,11 +112,27 @@ You can configure animations globally or per element using the following options
 - `data-swa-once`: If "true", the animation only occurs once
 - `data-swa-anchor-placement`: The anchor point of the element for animation start (e.g., "top-center", "center-bottom")
 
+### Group Animation Options
+
+Group animations use similar options, but with a `group` prefix:
+
+- `data-swa-group`: Animation type for all children (overridden by individual `data-swa` on children)
+- `data-swa-group-type`: "simultaneous" (default) or "sequence"
+- `data-swa-group-interval-duration`: Time interval between animations for "sequence" type (in milliseconds)
+- `data-swa-group-offset`: Offset for the entire group
+- `data-swa-group-delay`: Delay before starting the group animation
+- `data-swa-group-duration`: Duration for each animation in the group
+- `data-swa-group-easing`: Easing function for the group animations
+- `data-swa-group-mirror`: Mirror setting for the group
+- `data-swa-group-once`: Once setting for the group
+- `data-swa-group-anchor-placement`: Anchor placement for the group
+
 ## Supported Animations
 
-- Fade: fade, fade-up, fade-down, fade-left, fade-right
+- Fade: fade, fade-up, fade-down, fade-left, fade-right, fade-up-left, fade-up-right, fade-down-left, fade-down-right
 - Flip: flip-up, flip-down, flip-left, flip-right
 - Zoom: zoom-in, zoom-out
+- Slide: slide-up, slide-down, slide-left, slide-right, slide-up-left, slide-up-right, slide-down-left, slide-down-right
 - Bounce: bounce-in, bounce-out
 
 ## Browser Support

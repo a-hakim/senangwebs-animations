@@ -1,6 +1,6 @@
 /* SenangWebs Animations CSS */
 
-[data-swa] {
+[data-swa], [data-swa-group] > * {
     opacity: 0;
     transition-property: transform, opacity;
   }
@@ -368,8 +368,8 @@
       transform: translate3d(0, 0, 0);
     }
   }
-  
+
 /* Ensure elements are visible after animation */
-[data-swa-animated="true"] {
+[data-swa-animated="true"], [data-swa-group] > [data-swa-animated="true"] {
   opacity: 1;
 }
