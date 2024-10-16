@@ -8,9 +8,9 @@
     "dev": "webpack --mode development --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["animations", "web", "customizable", "scrolling", "scroll", "animation"],
+  "author": "a-hakim",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.25.8",
     "@babel/preset-env": "^7.25.8",
