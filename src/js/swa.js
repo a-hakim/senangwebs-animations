@@ -9,6 +9,7 @@
       once: true,
       mirror: false,
       anchorPlacement: 'top-bottom',
+      disabled: false,
     },
     activeOverflowAnimations: 0, // Counter for overflow-causing animations
     overflowBodyClass: 'swa-body-overflow-hidden', // CSS class to add to body
@@ -18,7 +19,12 @@
       this.elements = document.querySelectorAll('[data-swa], [data-swa-group]');
       // Inject the necessary CSS rule for body overflow
       this.injectOverflowStyle(); 
-      this.setupObserver();
+      
+      if (this.config.disabled) {
+        this.applyDisabledToAll();
+      } else {
+        this.setupObserver();
+      }
     },
 
     // Helper function to check if animation might cause overflow
@@ -50,6 +56,8 @@
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           const targetElement = entry.target;
+          if (this.config.disabled) return;
+          
           if (entry.isIntersecting) {
             this.addWillChange(targetElement);
             requestAnimationFrame(() => {
@@ -87,20 +95,41 @@
         const childDelay = groupType === 'sequence' ? index * intervalDuration : 0;
         const childAnimation = child.getAttribute('data-swa') || groupAnimation;
         
-        // Pass group options down, including potential group animation name
-        this.applySingleAnimation(child, {
-          ...groupOptions, 
-          animation: childAnimation, 
-          delay: groupOptions.delay + childDelay,
-          // Store original animation name for overflow check later
-          _originalAnimationName: childAnimation 
-        });
+        if (this.config.disabled) {
+          this.applyDisabledState(child);
+        } else {
+          // Pass group options down, including potential group animation name
+          this.applySingleAnimation(child, {
+            ...groupOptions, 
+            animation: childAnimation, 
+            delay: groupOptions.delay + childDelay,
+            // Store original animation name for overflow check later
+            _originalAnimationName: childAnimation 
+          });
+        }
       });
 
       groupEl.dataset.swaAnimated = 'true';
     },
 
+    applyDisabledState(el) {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.style.animationName = 'none';
+      el.style.animationDelay = '';
+      el.style.animationDuration = '';
+      el.style.animationTimingFunction = '';
+      el.style.animationFillMode = '';
+      el.dataset.swaAnimated = 'true';
+      this.removeWillChange(el);
+    },
+
     applySingleAnimation(el, options = {}) {
+      if (this.config.disabled) {
+        this.applyDisabledState(el);
+        return;
+      }
+
       const elOptions = this.getElementOptions(el);
       // Merge element options with passed options (from group or direct call)
       const finalOptions = { ...elOptions, ...options };
@@ -215,6 +244,17 @@
     },
     // --- End Helper functions ---
 
+    applyDisabledToAll() {
+      this.elements.forEach((el) => {
+        if (el.hasAttribute('data-swa-group')) {
+          Array.from(el.children).forEach(child => this.applyDisabledState(child));
+          el.dataset.swaAnimated = 'true';
+        } else {
+          this.applyDisabledState(el);
+        }
+      });
+    },
+
     getElementOptions(el) {
       return {
         animation: el.dataset.swa,
@@ -238,6 +278,63 @@
         once: groupEl.dataset.swaGroupOnce === 'true' || this.config.once,
         anchorPlacement: groupEl.dataset.swaGroupAnchorPlacement || this.config.anchorPlacement,
       };
+    },
+
+    play(selector) {
+      let elements;
+      
+      if (typeof selector === 'string') {
+        if (selector.startsWith('#')) {
+          const el = document.getElementById(selector.substring(1));
+          elements = el ? [el] : [];
+        } else {
+          elements = document.querySelectorAll(selector);
+        }
+      } else if (selector instanceof NodeList) {
+        elements = selector;
+      } else {
+        elements = [selector];
+      }
+      
+      elements.forEach((el) => {
+        if (el.hasAttribute('data-swa') || el.hasAttribute('data-swa-group')) {
+          this.addWillChange(el);
+          requestAnimationFrame(() => {
+            const originalDisabled = this.config.disabled;
+            this.config.disabled = false;
+            this.animateElement(el);
+            this.config.disabled = originalDisabled;
+          });
+        }
+      });
+    },
+
+    stop(selector) {
+      let elements;
+      
+      if (typeof selector === 'string') {
+        if (selector.startsWith('#')) {
+          const el = document.getElementById(selector.substring(1));
+          elements = el ? [el] : [];
+        } else {
+          elements = document.querySelectorAll(selector);
+        }
+      } else if (selector instanceof NodeList) {
+        elements = selector;
+      } else {
+        elements = [selector];
+      }
+      
+      elements.forEach((el) => {
+        if (el.hasAttribute('data-swa') || el.hasAttribute('data-swa-group')) {
+          this.resetElement(el);
+        }
+      });
+    },
+
+    reset(selector) {
+      this.play(selector);
+      this.stop(selector);
     },
   };
 

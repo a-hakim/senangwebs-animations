@@ -1,6 +1,6 @@
 {
   "name": "senangwebs-animations",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Lightweight library that enables smooth, customizable animations for HTML elements as they enter the viewport during scrolling.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,13 @@
     "dev": "webpack --mode development --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["web", "customizable", "scrolling", "scroll", "animation"],
+  "keywords": [
+    "web",
+    "customizable",
+    "scrolling",
+    "scroll",
+    "animation"
+  ],
   "author": "a-hakim",
   "license": "MIT",
   "devDependencies": {
@@ -16,6 +22,7 @@
     "@babel/preset-env": "^7.25.8",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.4",
     "mini-css-extract-plugin": "^2.9.1",
     "style-loader": "^4.0.0",
     "webpack": "^5.95.0",

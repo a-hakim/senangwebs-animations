@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
     duration: 600,
     easing: 'ease-out',
     once: true,
+    mirror: false,
+    disabled: false, // Set to true to disable animations
   });
 });
 ```
@@ -99,6 +101,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ## Configuration Options
 
+### Global Configuration Options
+
+You can configure animations globally using the following options when calling `SWA.init()`:
+
+- `offset`: Distance (in pixels) from the viewport before triggering the animation (default: 120)
+- `duration`: Duration of the animation (in milliseconds) (default: 600)
+- `easing`: Easing function for the animation (default: "ease-out")
+- `once`: If true, the animation only occurs once (default: true)
+- `mirror`: When set to true, the animation repeats when scrolling back up (default: false)
+- `anchorPlacement`: The anchor point of the element for animation start (default: "top-bottom")
+- `disabled`: When set to true, animations are disabled and elements appear in their final state immediately (default: false)
+
 ### Individual Element Options
 
 You can configure animations for individual elements using the following attributes:
@@ -126,6 +140,65 @@ Group animations use similar options, but with a `group` prefix:
 - `data-swa-group-mirror`: Mirror setting for the group
 - `data-swa-group-once`: Once setting for the group
 - `data-swa-group-anchor-placement`: Anchor placement for the group
+
+## Exposed Methods
+
+### `play(selector)`
+
+Manually trigger animations on specific elements. This method works even when animations are globally disabled.
+
+```javascript
+// Play animation by ID
+SWA.play('#myElementId');
+
+// Play animations by class
+SWA.play('.my-class');
+
+// Play all elements with data-swa attribute
+SWA.play('[data-swa]');
+
+// Play a specific element
+const element = document.getElementById('myElement');
+SWA.play(element);
+```
+
+### `stop(selector)`
+
+Stop/reset animations on specific elements to their initial state.
+
+```javascript
+// Stop animation by ID
+SWA.stop('#myElementId');
+
+// Stop animations by class
+SWA.stop('.my-class');
+
+// Stop all elements with data-swa attribute
+SWA.stop('[data-swa]');
+
+// Stop a specific element
+const element = document.getElementById('myElement');
+SWA.stop(element);
+```
+
+### `reset(selector)`
+
+Reset animations by playing them and then stopping them immediately, showing elements in their final state.
+
+```javascript
+// Reset element by ID
+SWA.reset('#myElementId');
+
+// Reset elements by class
+SWA.reset('.my-class');
+
+// Reset all elements with data-swa attribute
+SWA.reset('[data-swa]');
+
+// Reset a specific element
+const element = document.getElementById('myElement');
+SWA.reset(element);
+```
 
 ## Supported Animations
 
