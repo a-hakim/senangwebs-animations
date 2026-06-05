@@ -25,6 +25,12 @@ SenangWebs Animations (SWA) is a lightweight JavaScript library that enables smo
 npm install senangwebs-animations
 ```
 
+The package entry points to `dist/swa.js`, and the stylesheet is available at `dist/swa.css`.
+
+```javascript
+const SWA = require('senangwebs-animations');
+```
+
 ### Using a CDN
 
 You can include SenangWebs Animations directly in your HTML file using unpkg:
@@ -40,8 +46,8 @@ You can include SenangWebs Animations directly in your HTML file using unpkg:
 
 ```html
 <!-- If installed via npm -->
-<link rel="stylesheet" href="path/to/swa.css">
-<script src="path/to/swa.js"></script>
+<link rel="stylesheet" href="node_modules/senangwebs-animations/dist/swa.css">
+<script src="node_modules/senangwebs-animations/dist/swa.js"></script>
 
 <!-- Or if using unpkg -->
 <link rel="stylesheet" href="https://unpkg.com/senangwebs-animations@latest/dist/swa.css">
